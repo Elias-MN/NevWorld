@@ -91,20 +91,5 @@ hunts.to_csv(output, index=False)
 #### 6. Mostrar la ruta del archivo generado y su número de filas.
 
 print(output.resolve(), '->', len(hunts), 'filas')
-
-
-# #AMPLIACIÓN (añadir después de cargar df y crear la carpeta de salida)
-# types = ['construction_abandoned', 'construction_expired']
-# columns = [*base, 'type', 'cell_x', 'cell_y']
-# mask = df['type'].isin(types)
-# incidents = df.loc[mask].reindex(columns=columns).copy()
-# incidents['simulation_day'] = incidents['tick'] // 12000
-
-# assert len(incidents) == mask.sum()
-# assert not incidents.duplicated(['run_id', 'event_index']).any()
-# if not incidents.empty:
-#     assert incidents[columns].notna().all().all()
-# assert incidents['type'].isin(types).all()
-
 # incidents.to_csv(OUTPUT_DIR / 'construction_incidents.csv', index=False)
 # print('construction_incidents ->', len(incidents), 'filas')
